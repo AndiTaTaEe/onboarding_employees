@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="HubRequest" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:uwahm="clr-namespace:UiPath.Web.Activities.Http.Models;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="HubRequest" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sn="clr-namespace:System.Net;assembly=System.Net.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:uwahm="clr-namespace:UiPath.Web.Activities.Http.Models;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Method" Type="InArgument(x:String)" />
     <x:Property Name="in_Url" Type="InArgument(x:String)" />
@@ -55,7 +55,7 @@
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="HubRequest: un apel cu politica de reincercare" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="HubRequest: un apel cu politica de reincercare" sap:VirtualizedContainerService.HintSize="803.4000000000001,3081.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="response" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="status" />
@@ -81,7 +81,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Folderul pentru PDF-uri: temp, nu proiectul" sap2010:WorkflowViewState.IdRef="Assign_18">
+    <Assign DisplayName="Folderul pentru PDF-uri: temp, nu proiectul" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_18">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">downloadFolder</CSharpReference>
@@ -92,18 +92,33 @@
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">Path.Combine(Path.GetTempPath(), "bpa-documente")</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Creeaza folderul (altfel HTTP Request salveaza PDF-ul in proiect)" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Creeaza folderul (altfel HTTP Request salveaza PDF-ul in proiect)" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
       <ui:CreateDirectory.Path>
         <InArgument x:TypeArguments="x:String">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">downloadFolder</CSharpValue>
         </InArgument>
       </ui:CreateDirectory.Path>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CreateDirectory>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="Pana la un raspuns final" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="Pana la un raspuns final" sap:VirtualizedContainerService.HintSize="771.2,2721.6" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Assign DisplayName="Retry-After implicit: 1 s" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="771.2,2656" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Retry-After implicit: 1 s" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">
                 <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">retryAfter</CSharpReference>
@@ -112,8 +127,13 @@
             <Assign.Value>
               <InArgument x:TypeArguments="x:Int32">1</InArgument>
             </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign DisplayName="Fara fisier descarcat inca" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign DisplayName="Fara fisier descarcat inca" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="Assign_15">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">
                 <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">filePath</CSharpReference>
@@ -124,19 +144,44 @@
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">string.Empty</CSharpValue>
               </InArgument>
             </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <TryCatch DisplayName="Trimite cererea" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Trimite cererea" sap:VirtualizedContainerService.HintSize="740.8,894.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <Sequence DisplayName="Try" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                <If DisplayName="POST sau GET" sap2010:WorkflowViewState.IdRef="If_1">
+              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="710.4,521.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If DisplayName="POST sau GET" sap:VirtualizedContainerService.HintSize="680,281.6" sap2010:WorkflowViewState.IdRef="If_1">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">string.Equals(in_Method, "POST", StringComparison.OrdinalIgnoreCase)</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                      <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" FormDataParts="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" RetryStatusCodes="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="POST cu Idempotency-Key" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" sap2010:WorkflowViewState.IdRef="NetHttpRequest_1" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="Text" RetryCount="3" RetryPolicyType="None" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,96" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="POST cu Idempotency-Key" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="NetHttpRequest_1" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="Text" RetryCount="3" RetryPolicyType="None" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                        <uwah:NetHttpRequest.FormDataParts>
+                          <InArgument x:TypeArguments="scg:IEnumerable(uwahm:FormDataPart)">
+                            <CSharpValue x:TypeArguments="scg:IEnumerable(uwahm:FormDataPart)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38" xml:space="preserve">new List&lt;FormDataPart&gt; 
+{
+	new FileFormDataPart(),
+	new BinaryFormDataPart(),
+	new TextFormDataPart()
+}</CSharpValue>
+                          </InArgument>
+                        </uwah:NetHttpRequest.FormDataParts>
                         <uwah:NetHttpRequest.Headers>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
                             <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">new Dictionary&lt;string, string&gt; { { "Idempotency-Key", in_IdempotencyKey } }</CSharpValue>
@@ -152,6 +197,19 @@
                             <CSharpReference x:TypeArguments="uwahm:HttpResponseSummary" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">response</CSharpReference>
                           </OutArgument>
                         </uwah:NetHttpRequest.Result>
+                        <uwah:NetHttpRequest.RetryStatusCodes>
+                          <InArgument x:TypeArguments="scg:IEnumerable(sn:HttpStatusCode)">
+                            <CSharpValue x:TypeArguments="scg:IEnumerable(sn:HttpStatusCode)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37" xml:space="preserve">new List&lt;System.Net.HttpStatusCode&gt; 
+{
+	System.Net.HttpStatusCode.RequestTimeout,
+	System.Net.HttpStatusCode.TooManyRequests,
+	System.Net.HttpStatusCode.InternalServerError,
+	System.Net.HttpStatusCode.BadGateway,
+	System.Net.HttpStatusCode.ServiceUnavailable,
+	System.Net.HttpStatusCode.GatewayTimeout
+}</CSharpValue>
+                          </InArgument>
+                        </uwah:NetHttpRequest.RetryStatusCodes>
                         <uwah:NetHttpRequest.TextPayload>
                           <InArgument x:TypeArguments="x:String">
                             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">in_Body</CSharpValue>
@@ -162,12 +220,32 @@
                             <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
                           </InArgument>
                         </uwah:NetHttpRequest.TimeoutInMiliseconds>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </uwah:NetHttpRequest>
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                      <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" FormDataParts="{x:Null}" Headers="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" RetryStatusCodes="{x:Null}" TextPayload="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="GET" EnableCookies="True" FileOverwrite="Replace" FollowRedirects="True" sap2010:WorkflowViewState.IdRef="NetHttpRequest_2" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="GET" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="None" RetryCount="3" RetryPolicyType="None" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="680,96" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" Headers="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" TextPayload="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="GET" EnableCookies="True" FileOverwrite="Replace" FollowRedirects="True" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="NetHttpRequest_2" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="GET" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="None" RetryCount="3" RetryPolicyType="None" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                        <uwah:NetHttpRequest.FormDataParts>
+                          <InArgument x:TypeArguments="scg:IEnumerable(uwahm:FormDataPart)">
+                            <CSharpValue x:TypeArguments="scg:IEnumerable(uwahm:FormDataPart)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40" xml:space="preserve">new List&lt;FormDataPart&gt; 
+{
+	new FileFormDataPart(),
+	new BinaryFormDataPart(),
+	new TextFormDataPart()
+}</CSharpValue>
+                          </InArgument>
+                        </uwah:NetHttpRequest.FormDataParts>
                         <uwah:NetHttpRequest.OutputFileTargetFolder>
                           <InArgument x:TypeArguments="x:String">
                             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">downloadFolder</CSharpValue>
@@ -183,16 +261,34 @@
                             <CSharpReference x:TypeArguments="uwahm:HttpResponseSummary" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">response</CSharpReference>
                           </OutArgument>
                         </uwah:NetHttpRequest.Result>
+                        <uwah:NetHttpRequest.RetryStatusCodes>
+                          <InArgument x:TypeArguments="scg:IEnumerable(sn:HttpStatusCode)">
+                            <CSharpValue x:TypeArguments="scg:IEnumerable(sn:HttpStatusCode)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39" xml:space="preserve">new List&lt;System.Net.HttpStatusCode&gt; 
+{
+	System.Net.HttpStatusCode.RequestTimeout,
+	System.Net.HttpStatusCode.TooManyRequests,
+	System.Net.HttpStatusCode.InternalServerError,
+	System.Net.HttpStatusCode.BadGateway,
+	System.Net.HttpStatusCode.ServiceUnavailable,
+	System.Net.HttpStatusCode.GatewayTimeout
+}</CSharpValue>
+                          </InArgument>
+                        </uwah:NetHttpRequest.RetryStatusCodes>
                         <uwah:NetHttpRequest.TimeoutInMiliseconds>
                           <InArgument x:TypeArguments="s:Nullable(x:Int32)">
                             <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
                           </InArgument>
                         </uwah:NetHttpRequest.TimeoutInMiliseconds>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </uwah:NetHttpRequest>
                     </Sequence>
                   </If.Else>
                 </If>
-                <Assign DisplayName="Status" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign DisplayName="Status" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int32">
                       <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">status</CSharpReference>
@@ -203,8 +299,13 @@
                       <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">(int)response.StatusCode</CSharpValue>
                     </InArgument>
                   </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <Assign DisplayName="Corpul raspunsului" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign DisplayName="Corpul raspunsului" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">
                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">body</CSharpReference>
@@ -215,8 +316,13 @@
                       <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">response.TextContent ?? ""</CSharpValue>
                     </InArgument>
                   </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <Assign DisplayName="Fisierul descarcat (PDF)" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign DisplayName="Fisierul descarcat (PDF)" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_16">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">
                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">filePath</CSharpReference>
@@ -227,8 +333,13 @@
                       <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">response.File == null ? string.Empty : response.File.LocalPath</CSharpValue>
                     </InArgument>
                   </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <Assign DisplayName="Retry-After din antet" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign DisplayName="Retry-After din antet" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int32">
                       <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">retryAfter</CSharpReference>
@@ -239,6 +350,11 @@
                       <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">response.Headers == null ? 1 : response.Headers.Where(h =&gt; string.Equals(h.Key, "Retry-After", StringComparison.OrdinalIgnoreCase)).Select(h =&gt; int.Parse(h.Value.Trim(), CultureInfo.InvariantCulture)).DefaultIfEmpty(1).First()</CSharpValue>
                     </InArgument>
                   </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </Assign>
               </Sequence>
             </TryCatch.Try>
@@ -248,8 +364,13 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Catch: timeout sau eroare de retea" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                    <Assign DisplayName="Status 0 = fara raspuns" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Sequence DisplayName="Catch: timeout sau eroare de retea" sap:VirtualizedContainerService.HintSize="680,144" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Status 0 = fara raspuns" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_5">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">
                           <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">status</CSharpReference>
@@ -258,8 +379,13 @@
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:Int32">0</InArgument>
                       </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </Assign>
-                    <Assign DisplayName="Mesajul erorii" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign DisplayName="Mesajul erorii" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_6">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">
                           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">body</CSharpReference>
@@ -270,29 +396,49 @@
                           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">exception.GetType().Name + ": " + exception.Message</CSharpValue>
                         </InArgument>
                       </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </Assign>
                   </Sequence>
                 </ActivityAction>
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <If DisplayName="429?" sap2010:WorkflowViewState.IdRef="If_2">
+          <If DisplayName="429?" sap:VirtualizedContainerService.HintSize="740.8,1641.6" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">status == 429</CSharpValue>
               </InArgument>
             </If.Condition>
             <If.Then>
-              <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                <If DisplayName="RUN_REQUEST_LIMIT?" sap2010:WorkflowViewState.IdRef="If_3">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="710.4,659.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If DisplayName="RUN_REQUEST_LIMIT?" sap:VirtualizedContainerService.HintSize="680,137.6" sap2010:WorkflowViewState.IdRef="If_3">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">body.Contains("RUN_REQUEST_LIMIT")</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                      <Throw DisplayName="Rularea si-a epuizat cererile" sap2010:WorkflowViewState.IdRef="Throw_1">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,72" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Throw DisplayName="Rularea si-a epuizat cererile" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Throw_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                         <InArgument x:TypeArguments="s:Exception">
                           <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">new Exception("RUN_REQUEST_LIMIT: rularea si-a epuizat cererile. " + body)</CSharpValue>
                         </InArgument>
@@ -300,7 +446,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <Assign DisplayName="waits + 1" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign DisplayName="waits + 1" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_7">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int32">
                       <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">waits</CSharpReference>
@@ -311,23 +457,38 @@
                       <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">waits + 1</CSharpValue>
                     </InArgument>
                   </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <If DisplayName="Peste 10 asteptari?" sap2010:WorkflowViewState.IdRef="If_4">
+                <If DisplayName="Peste 10 asteptari?" sap:VirtualizedContainerService.HintSize="680,425.6" sap2010:WorkflowViewState.IdRef="If_4">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">waits &gt; 10</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                      <ui:LogMessage DisplayName="Apel esuat: 429 de prea multe ori" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,192" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Apel esuat: 429 de prea multe ori" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">"Apel esuat dupa 10 asteptari la 429: " + in_Method + " " + in_Url</CSharpValue>
                           </InArgument>
                         </ui:LogMessage.Message>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <Assign DisplayName="Esuat: 429 de prea multe ori" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <Assign DisplayName="Esuat: 429 de prea multe ori" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_19">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">failed</CSharpReference>
@@ -336,8 +497,13 @@
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </Assign>
-                      <Assign DisplayName="Gata: 429 de prea multe ori" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign DisplayName="Gata: 429 de prea multe ori" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_8">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">done</CSharpReference>
@@ -346,19 +512,39 @@
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                      <ui:LogMessage DisplayName="Log: astept dupa 429" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="680,144" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log: astept dupa 429" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">"Reincercare dupa 429 (asteptarea " + waits.ToString() + "/10, " + retryAfter.ToString() + " s): " + in_Method + " " + in_Url</CSharpValue>
                           </InArgument>
                         </ui:LogMessage.Message>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <Delay DisplayName="Asteapta Retry-After (429)" sap2010:WorkflowViewState.IdRef="Delay_1">
+                      <Delay DisplayName="Asteapta Retry-After (429)" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Delay_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                         <InArgument x:TypeArguments="x:TimeSpan">
                           <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">TimeSpan.FromSeconds(retryAfter)</CSharpValue>
                         </InArgument>
@@ -369,24 +555,44 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                <If DisplayName="500, 502, 503, 504 sau fara raspuns?" sap2010:WorkflowViewState.IdRef="If_5">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="740.8,892.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If DisplayName="500, 502, 503, 504 sau fara raspuns?" sap:VirtualizedContainerService.HintSize="710.4,844.8" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">new int[] { 0, 500, 502, 503, 504 }.Contains(status)</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                      <If DisplayName="RUN_PAUSED?" sap2010:WorkflowViewState.IdRef="If_7">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="710.4,659.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If DisplayName="RUN_PAUSED?" sap:VirtualizedContainerService.HintSize="680,137.6" sap2010:WorkflowViewState.IdRef="If_7">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">status == 503 &amp;&amp; body.Contains("RUN_PAUSED")</CSharpValue>
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                            <Throw DisplayName="Rularea e in pauza: robotul se opreste" sap2010:WorkflowViewState.IdRef="Throw_2">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,72" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw DisplayName="Rularea e in pauza: robotul se opreste" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Throw_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                               <InArgument x:TypeArguments="s:Exception">
                                 <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">new Exception("RUN_PAUSED: runner-ul a oprit rularea pentru testul de repornire; robotul se opreste si va fi pornit din nou.")</CSharpValue>
                               </InArgument>
@@ -394,22 +600,32 @@
                           </Sequence>
                         </If.Then>
                       </If>
-                      <If DisplayName="A treia incercare?" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If DisplayName="A treia incercare?" sap:VirtualizedContainerService.HintSize="680,473.6" sap2010:WorkflowViewState.IdRef="If_6">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">attempt &gt;= 3</CSharpValue>
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                            <ui:LogMessage DisplayName="Apel esuat dupa 3 incercari" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,192" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Apel esuat dupa 3 incercari" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
                               <ui:LogMessage.Message>
                                 <InArgument x:TypeArguments="x:Object">
                                   <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">"Apel esuat dupa 3 incercari (ultimul status " + status.ToString() + "): " + in_Method + " " + in_Url</CSharpValue>
                                 </InArgument>
                               </ui:LogMessage.Message>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
-                            <Assign DisplayName="Esuat: 3 incercari" sap2010:WorkflowViewState.IdRef="Assign_20">
+                            <Assign DisplayName="Esuat: 3 incercari" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_20">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">
                                   <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">failed</CSharpReference>
@@ -418,8 +634,13 @@
                               <Assign.Value>
                                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                               </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </Assign>
-                            <Assign DisplayName="Gata: 3 incercari esuate" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign DisplayName="Gata: 3 incercari esuate" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_9">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">
                                   <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">done</CSharpReference>
@@ -428,24 +649,44 @@
                               <Assign.Value>
                                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                               </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </Assign>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                            <ui:LogMessage DisplayName="Log: reincercare" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn">
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="680,192" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log: reincercare" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn">
                               <ui:LogMessage.Message>
                                 <InArgument x:TypeArguments="x:Object">
                                   <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">"Reincercare " + (attempt + 1).ToString() + "/3 dupa status " + status.ToString() + " (" + retryAfter.ToString() + " s): " + in_Method + " " + in_Url</CSharpValue>
                                 </InArgument>
                               </ui:LogMessage.Message>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
-                            <Delay DisplayName="Asteapta Retry-After (5xx)" sap2010:WorkflowViewState.IdRef="Delay_2">
+                            <Delay DisplayName="Asteapta Retry-After (5xx)" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Delay_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                               <InArgument x:TypeArguments="x:TimeSpan">
                                 <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">TimeSpan.FromSeconds(retryAfter)</CSharpValue>
                               </InArgument>
                             </Delay>
-                            <Assign DisplayName="attempt + 1" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign DisplayName="attempt + 1" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_10">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Int32">
                                   <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">attempt</CSharpReference>
@@ -456,6 +697,11 @@
                                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">attempt + 1</CSharpValue>
                                 </InArgument>
                               </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </Assign>
                           </Sequence>
                         </If.Else>
@@ -463,8 +709,13 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else: raspuns final" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                      <Assign DisplayName="Gata: raspuns final" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Sequence DisplayName="Else: raspuns final" sap:VirtualizedContainerService.HintSize="680,96" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Gata: raspuns final" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="Assign_11">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">done</CSharpReference>
@@ -473,6 +724,11 @@
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
                   </If.Else>
@@ -485,8 +741,14 @@
       <ui:InterruptibleWhile.Condition>
         <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">!done</CSharpValue>
       </ui:InterruptibleWhile.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleWhile>
-    <Assign DisplayName="out_StatusCode" sap2010:WorkflowViewState.IdRef="Assign_12">
+    <Assign DisplayName="out_StatusCode" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_12">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">
           <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">out_StatusCode</CSharpReference>
@@ -497,8 +759,13 @@
           <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">status</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign DisplayName="out_Body" sap2010:WorkflowViewState.IdRef="Assign_13">
+    <Assign DisplayName="out_Body" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_13">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">out_Body</CSharpReference>
@@ -509,8 +776,13 @@
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">body</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign DisplayName="out_Failed" sap2010:WorkflowViewState.IdRef="Assign_21">
+    <Assign DisplayName="out_Failed" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_21">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">
           <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">out_Failed</CSharpReference>
@@ -521,8 +793,13 @@
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">failed</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign DisplayName="out_FilePath" sap2010:WorkflowViewState.IdRef="Assign_17">
+    <Assign DisplayName="out_FilePath" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_17">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">out_FilePath</CSharpReference>
@@ -533,8 +810,13 @@
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">filePath</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign DisplayName="out_Json: date si sume raman text" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <Assign DisplayName="out_Json: date si sume raman text" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JToken">
           <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">out_Json</CSharpReference>
@@ -545,6 +827,11 @@
           <CSharpValue x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">body.TrimStart().StartsWith("{") || body.TrimStart().StartsWith("[") ? JsonConvert.DeserializeObject&lt;JToken&gt;(body, new JsonSerializerSettings { DateParseHandling = DateParseHandling.None, FloatParseHandling = FloatParseHandling.Decimal }) : null</CSharpValue>
         </InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
   </Sequence>
 </Activity>
