@@ -9,7 +9,9 @@
         "type": "object",
         "properties": {
           "in_BaseUrl": {
-            "type": "string"
+            "type": "string",
+            "x-default-expression": "\"https://apb.majordom.tech/r/US_H3QqOl7_2-ZR1R6DIpA\"",
+            "default": "https://apb.majordom.tech/r/US_H3QqOl7_2-ZR1R6DIpA"
           }
         },
         "required": []
