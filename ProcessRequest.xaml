@@ -106,7 +106,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="ProcessRequest" sap:VirtualizedContainerService.HintSize="803.4000000000001,2139.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessRequest" sap:VirtualizedContainerService.HintSize="821.6,2324.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="lastRecord" />
       <Variable x:TypeArguments="x:String" Name="r14Decision" />
@@ -120,7 +120,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GET /history" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="HubRequest.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GET /history" sap:VirtualizedContainerService.HintSize="801.6,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="HubRequest.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_Method">GET</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_Url">
@@ -148,7 +148,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <If DisplayName="/history a reusit?" sap:VirtualizedContainerService.HintSize="771.2,137.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="/history a reusit?" sap:VirtualizedContainerService.HintSize="801.6,137.6" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">status != 200</CSharpValue>
@@ -174,7 +174,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="B-R14: Verificare istoric" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Common\History_R14.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="B-R14: Verificare istoric" sap:VirtualizedContainerService.HintSize="801.6,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Common\History_R14.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="njl:JObject" x:Key="out_LastRecord">
           <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">lastRecord</CSharpReference>
@@ -195,7 +195,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <If DisplayName="r14Decsion = &quot;SKIP_REPORT_ONLY&quot;?" sap:VirtualizedContainerService.HintSize="771.2,1833.6" sap2010:WorkflowViewState.IdRef="If_3">
+    <If DisplayName="r14Decsion = &quot;SKIP_REPORT_ONLY&quot;?" sap:VirtualizedContainerService.HintSize="801.6,2019.2" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">string.Equals(r14Decision, "SKIP_REPORT_ONLY", StringComparison.Ordinal)</CSharpValue>
@@ -228,7 +228,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else - r14Decision este &quot;PROCESS_FULL&quot; sau &quot;NOTIFY_ONLY&quot;" sap:VirtualizedContainerService.HintSize="771.2,1648" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Else - r14Decision este &quot;PROCESS_FULL&quot; sau &quot;NOTIFY_ONLY&quot;" sap:VirtualizedContainerService.HintSize="801.6,1833.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="normManagerId" />
             <Variable x:TypeArguments="x:String" Name="normDepartmentCode" />
@@ -248,7 +248,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GET /requests/{request_id}" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="HubRequest.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GET /requests/{request_id}" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="HubRequest.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_Method">GET</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_Url">
@@ -276,7 +276,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If DisplayName="/requests/{request_id} a reusit?" sap:VirtualizedContainerService.HintSize="740.8,137.6" sap2010:WorkflowViewState.IdRef="If_2">
+          <If DisplayName="/requests/{request_id} a reusit?" sap:VirtualizedContainerService.HintSize="771.2,137.6" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">status != 200</CSharpValue>
@@ -302,7 +302,7 @@
               </Sequence>
             </If.Then>
           </If>
-          <ui:LogMessage DisplayName="Log: afisare date requests/{request_id}" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+          <ui:LogMessage DisplayName="Log: afisare date requests/{request_id}" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
             <ui:LogMessage.Message>
               <InArgument x:TypeArguments="x:Object">
                 <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">"[" + in_RequestId + "] istoric=" + history.Count.ToString(CultureInfo.InvariantCulture) + " | " + (requestDoc.Value&lt;string&gt;("first_name") ?? "") + " " + (requestDoc.Value&lt;string&gt;("last_name") ?? "") + " (" + (requestDoc.Value&lt;string&gt;("role_code") ?? "") + ")"</CSharpValue>
@@ -314,7 +314,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Normalizarea datelor" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Common\Normalize.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Normalizarea datelor" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Common\Normalize.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="x:String" x:Key="out_ManagerId">
                 <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">normManagerId</CSharpReference>
@@ -359,7 +359,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If DisplayName="r14Decision e NOTIFY_ONLY?" sap:VirtualizedContainerService.HintSize="740.8,1318.4" sap2010:WorkflowViewState.IdRef="If_4">
+          <If DisplayName="r14Decision e NOTIFY_ONLY?" sap:VirtualizedContainerService.HintSize="771.2,1504" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">string.Equals(r14Decision, "NOTIFY_ONLY", StringComparison.Ordinal)</CSharpValue>
@@ -392,7 +392,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="740.8,1132.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="771.2,1318.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="ruleCode" />
                 </Sequence.Variables>
@@ -402,7 +402,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R01 - cererea are forma ceruta" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Rules\B_R01_Form.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R01 - cererea are forma ceruta" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Rules\B_R01_Form.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">ruleCode</CSharpReference>
@@ -438,7 +438,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="LogMessage_6">
                   <ui:LogMessage.Message>
                     <InArgument x:TypeArguments="x:Object">
                       <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">"[" + in_RequestId + "] B-R01: " + (string.IsNullOrEmpty(ruleCode) ? "OK" : ruleCode)</CSharpValue>
@@ -450,14 +450,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:LogMessage>
-                <If DisplayName="a trecut B-R01?" sap:VirtualizedContainerService.HintSize="710.4,940.8" sap2010:WorkflowViewState.IdRef="If_5">
+                <If DisplayName="a trecut B-R01?" sap:VirtualizedContainerService.HintSize="740.8,1126.4" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">string.IsNullOrEmpty(ruleCode)</CSharpValue>
                     </InArgument>
                   </If.Condition>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="710.4,875.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="740.8,1060.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:List(x:String)" Name="r04Codes" />
                         <Variable x:TypeArguments="njl:JObject" Name="deptObj" />
@@ -468,13 +468,18 @@
                         <Variable x:TypeArguments="x:String" Name="cnpCode" />
                         <Variable x:TypeArguments="s:DateTime" Name="birthDate" />
                         <Variable x:TypeArguments="x:Boolean" Name="isCnpValid" />
+                        <Variable x:TypeArguments="x:String" Name="ageCode" />
+                        <Variable x:TypeArguments="x:String" Name="r08Code" />
+                        <Variable x:TypeArguments="x:String" Name="r06Code" />
+                        <Variable x:TypeArguments="scg:List(x:String)" Name="packageCodes" />
+                        <Variable x:TypeArguments="x:String" Name="r09Code" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R02 - CNP valid" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Rules\B_R02_Cnp.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R02 - CNP valid" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Rules\B_R02_Cnp.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">cnpCode</CSharpReference>
@@ -495,7 +500,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"[" + in_RequestId + "] B-R02: " + (string.IsNullOrEmpty(cnpCode) ? "OK (" + birthDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ")" : cnpCode)</CSharpValue>
@@ -507,7 +512,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <If DisplayName="a trecut B-R02?" sap:VirtualizedContainerService.HintSize="680,281.6" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If DisplayName="a trecut B-R02?" sap:VirtualizedContainerService.HintSize="710.4,281.6" sap2010:WorkflowViewState.IdRef="If_6">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">isCnpValid</CSharpValue>
@@ -515,10 +520,6 @@
                         </If.Condition>
                         <If.Then>
                           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,216" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:String" Name="ageCode" />
-                              <Variable x:TypeArguments="x:String" Name="r08Code" />
-                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -593,7 +594,7 @@
                           </Sequence>
                         </If.Then>
                       </If>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R04 - existenta roluri/departamente" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Rules\B_R04_RoleDept.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R04 - existenta roluri/departamente" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Rules\B_R04_RoleDept.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_Codes">
                             <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">r04Codes</CSharpReference>
@@ -623,7 +624,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">"[" + in_RequestId + "] B-R04: " + (!r04Codes.Any() ? "OK" : string.Join(",", r04Codes))</CSharpValue>
@@ -635,23 +636,20 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <If DisplayName="a trecut B-R04?" sap:VirtualizedContainerService.HintSize="680,185.6" sap2010:WorkflowViewState.IdRef="If_7">
+                      <If DisplayName="a trecut B-R04?" sap:VirtualizedContainerService.HintSize="710.4,371.2" sap2010:WorkflowViewState.IdRef="If_7">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">!r04Codes.Any()</CSharpValue>
                           </InArgument>
                         </If.Condition>
                         <If.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,120" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:String" Name="r06Code" />
-                            </Sequence.Variables>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="710.4,305.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R06 - verificare departament in allowed_departments" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Rules\B_R06_RoleInDept.xaml">
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R06 - verificare departament in allowed_departments" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Rules\B_R06_RoleInDept.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
                                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">r06Code</CSharpReference>
@@ -669,7 +667,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:InvokeWorkflowFile>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info">
                               <ui:LogMessage.Message>
                                 <InArgument x:TypeArguments="x:Object">
                                   <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"[" + in_RequestId + "] B-R06: " + (string.IsNullOrEmpty(r06Code) ? "OK" : r06Code)</CSharpValue>
@@ -681,10 +679,62 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:LogMessage>
+                            <If DisplayName="a trecut B-R06?" sap:VirtualizedContainerService.HintSize="680,185.6" sap2010:WorkflowViewState.IdRef="If_8">
+                              <If.Condition>
+                                <InArgument x:TypeArguments="x:Boolean">
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">string.IsNullOrEmpty(r06Code)</CSharpValue>
+                                </InArgument>
+                              </If.Condition>
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="680,120" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R09 - verificare set pachete" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Rules\B_R09_Sod.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_36">r09Code</CSharpReference>
+                                      </OutArgument>
+                                      <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_PackageCodes">
+                                        <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">packageCodes</CSharpReference>
+                                      </OutArgument>
+                                      <InArgument x:TypeArguments="njl:JArray" x:Key="in_AccessPackages">
+                                        <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">in_AccessPackages</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="njl:JObject" x:Key="in_DeptObj">
+                                        <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">deptObj</CSharpValue>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="njl:JObject" x:Key="in_RoleObj">
+                                        <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">roleObj</CSharpValue>
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info">
+                                    <ui:LogMessage.Message>
+                                      <InArgument x:TypeArguments="x:Object">
+                                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">"[" + in_RequestId + "] B-R09: " + (string.IsNullOrEmpty(r09Code) ? "OK" : r09Code)</CSharpValue>
+                                      </InArgument>
+                                    </ui:LogMessage.Message>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                </Sequence>
+                              </If.Then>
+                            </If>
                           </Sequence>
                         </If.Then>
                       </If>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R05 - data de start inainte de data de lucru" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Rules\B_R05_StartDate.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R05 - data de start inainte de data de lucru" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Rules\B_R05_StartDate.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">r05Code</CSharpReference>
@@ -702,7 +752,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">"[" + in_RequestId + "] B-R05: " + (String.IsNullOrEmpty(r05Code) ? "OK" : r05Code)</CSharpValue>
@@ -714,7 +764,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R07 - manager existent si activ" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Rules\B_R07_Manager.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Verificare B-R07 - manager existent si activ" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Rules\B_R07_Manager.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Code">
                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_33">r07Code</CSharpReference>
@@ -735,7 +785,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
                             <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">"[" + in_RequestId + "] B-R07: " + (string.IsNullOrEmpty(r07Code) ? "OK" : r07Code)</CSharpValue>
@@ -750,7 +800,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <Assign sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="njl:JObject">
                       <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">out_ReportItem</CSharpReference>
@@ -773,7 +823,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="771.2,48" sap2010:WorkflowViewState.IdRef="LogMessage_5">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="801.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_5">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"[" + in_RequestId + "] outcome=" + out_ReportItem.Value&lt;string&gt;("outcome") + " codes=" + out_ReportItem["reason_codes"].ToString(Newtonsoft.Json.Formatting.None)</CSharpValue>
