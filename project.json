@@ -4,6 +4,7 @@
   "description": "Project",
   "main": "Main.xaml",
   "dependencies": {
+    "FHUiPath.Box.IntegrationService.Activities": "[4.0.147-dev.1406]",
     "UiPath.System.Activities": "[26.10.0]",
     "UiPath.WebAPI.Activities": "[2.5.2]"
   },

@@ -91,10 +91,13 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="B_R09_Access" sap:VirtualizedContainerService.HintSize="803.4000000000001,1192" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="B_R09_Access" sap:VirtualizedContainerService.HintSize="803.4000000000001,1240" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="njl:JToken" Name="grantsJson" />
       <Variable x:TypeArguments="x:Boolean" Name="hasFailed" />
       <Variable x:TypeArguments="x:String" Name="grantBody" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="sortedPackages" />
@@ -126,8 +129,8 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_Body">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">body</CSharpReference>
         </OutArgument>
-        <OutArgument x:TypeArguments="njl:JArray" x:Key="out_Json">
-          <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">existingGrants</CSharpReference>
+        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_Json">
+          <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">grantsJson</CSharpReference>
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
@@ -162,6 +165,23 @@
         </Sequence>
       </If.Then>
     </If>
+    <Assign sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="njl:JArray">
+          <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">existingGrants</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="njl:JArray">
+          <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">grantsJson is JArray ? (JArray)grantsJson : (grantsJson["items"] as JArray ?? grantsJson["grants"] as JArray ?? new JArray())</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="740.8,48" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:HashSet(x:String)">
