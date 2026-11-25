@@ -106,7 +106,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="ProcessRequest" sap:VirtualizedContainerService.HintSize="821.6,3217.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessRequest" sap:VirtualizedContainerService.HintSize="821.6,3169.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="lastRecord" />
       <Variable x:TypeArguments="x:String" Name="r14Decision" />
@@ -195,7 +195,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <If DisplayName="r14Decsion = &quot;SKIP_REPORT_ONLY&quot;?" sap:VirtualizedContainerService.HintSize="801.6,2912" sap2010:WorkflowViewState.IdRef="If_3">
+    <If DisplayName="r14Decsion = &quot;SKIP_REPORT_ONLY&quot;?" sap:VirtualizedContainerService.HintSize="801.6,2864" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">string.Equals(r14Decision, "SKIP_REPORT_ONLY", StringComparison.Ordinal)</CSharpValue>
@@ -228,7 +228,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else - r14Decision este &quot;PROCESS_FULL&quot; sau &quot;NOTIFY_ONLY&quot;" sap:VirtualizedContainerService.HintSize="801.6,2726.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Else - r14Decision este &quot;PROCESS_FULL&quot; sau &quot;NOTIFY_ONLY&quot;" sap:VirtualizedContainerService.HintSize="801.6,2678.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="normManagerId" />
             <Variable x:TypeArguments="x:String" Name="normDepartmentCode" />
@@ -360,7 +360,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If DisplayName="r14Decision e NOTIFY_ONLY?" sap:VirtualizedContainerService.HintSize="771.2,2396.8" sap2010:WorkflowViewState.IdRef="If_4">
+          <If DisplayName="r14Decision e NOTIFY_ONLY?" sap:VirtualizedContainerService.HintSize="771.2,2348.8" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">string.Equals(r14Decision, "NOTIFY_ONLY", StringComparison.Ordinal)</CSharpValue>
@@ -393,7 +393,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="771.2,2211.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="771.2,2163.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="validationOutcome" />
                   <Variable x:TypeArguments="scg:List(x:String)" Name="reasonCodes" />
@@ -846,7 +846,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
-                <If DisplayName="validare esuata? (REJECTED/MANUAL_REVIEW)" sap:VirtualizedContainerService.HintSize="740.8,892.8" sap2010:WorkflowViewState.IdRef="If_9">
+                <If DisplayName="validare esuata? (REJECTED/MANUAL_REVIEW)" sap:VirtualizedContainerService.HintSize="740.8,844.8" sap2010:WorkflowViewState.IdRef="If_9">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">!string.Equals(validationOutcome, "APPROVED", StringComparison.Ordinal)</CSharpValue>
@@ -867,7 +867,7 @@
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76" xml:space="preserve">new JObject(
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_92" xml:space="preserve">new JObject(
     new JProperty("request_id", in_RequestId),
     new JProperty("outcome", validationOutcome),
     new JProperty("reason_codes", new JArray(reasonCodes)),
@@ -979,13 +979,7 @@
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84" xml:space="preserve">new JObject(
-    new JProperty("request_id", in_RequestId),
-    new JProperty("recipient_role", "HR"),
-    new JProperty("template", notifyTemplate),
-    new JProperty("recipient", (in_Config["notification_recipients"] != null &amp;&amp; in_Config["notification_recipients"]["HR"] != null ? in_Config["notification_recipients"]["HR"].ToString() : "").Trim()),
-    new JProperty("message", notifyMessage)
-).ToString(Newtonsoft.Json.Formatting.None)</CSharpValue>
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_93">new JObject(new JProperty("request_id", in_RequestId),new JProperty("recipient_role", "HR"),new JProperty("template", notifyTemplate),new JProperty("recipient", (in_Config["notification_recipients"] != null &amp;&amp; in_Config["notification_recipients"]["HR"] != null ? in_Config["notification_recipients"]["HR"].ToString() : "").Trim()), new JProperty("message", notifyMessage)).ToString(Newtonsoft.Json.Formatting.None)</CSharpValue>
                           </InArgument>
                         </Assign.Value>
                         <sap:WorkflowViewStateService.ViewState>
@@ -1084,7 +1078,7 @@
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="njl:JObject">
-                            <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91" xml:space="preserve">new JObject(
+                            <CSharpValue x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94" xml:space="preserve">new JObject(
 new JProperty("request_id", in_RequestId),
 new JProperty("outcome", "PENDING"),
 new JProperty("reason_codes", new JArray())
