@@ -102,10 +102,14 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="B_R10_Account" sap:VirtualizedContainerService.HintSize="803.4000000000001,1816" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="B_R10_Account" sap:VirtualizedContainerService.HintSize="803.4000000000001,1912" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="njl:JToken" Name="allAccountsJson" />
+      <Variable x:TypeArguments="njl:JToken" Name="accountsByCnpJson" />
       <Variable x:TypeArguments="x:String" Name="accountBody" />
       <Variable x:TypeArguments="x:Int32" Name="suffix" />
       <Variable x:TypeArguments="x:String" Name="candidateUsername" />
@@ -142,8 +146,8 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_Body">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">body</CSharpReference>
         </OutArgument>
-        <OutArgument x:TypeArguments="njl:JArray" x:Key="out_Json">
-          <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">accountsByCnp</CSharpReference>
+        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_Json">
+          <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">accountsByCnpJson</CSharpReference>
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
@@ -178,6 +182,23 @@
         </Sequence>
       </If.Then>
     </If>
+    <Assign sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="Assign_20">
+      <Assign.To>
+        <OutArgument x:TypeArguments="njl:JArray">
+          <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_29">accountsByCnp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="njl:JArray">
+          <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">accountsByCnpJson is JArray ? (JArray)accountsByCnpJson : (accountsByCnpJson["items"] as JArray ?? accountsByCnpJson["accounts"] as JArray ?? new JArray())</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="710.4,48" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JObject">
@@ -195,7 +216,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If DisplayName="exista contul deja?" sap:VirtualizedContainerService.HintSize="710.4,1558.4" sap2010:WorkflowViewState.IdRef="If_2">
+    <If DisplayName="exista contul deja?" sap:VirtualizedContainerService.HintSize="710.4,1606.4" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">existingAcc != null</CSharpValue>
@@ -262,7 +283,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="daca nu exista, cream contul cu valori normalizate si username" sap:VirtualizedContainerService.HintSize="710.4,1276.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="daca nu exista, cream contul cu valori normalizate si username" sap:VirtualizedContainerService.HintSize="710.4,1324.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -294,7 +315,7 @@
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_LastName.Replace(" ", "-")</CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">string.Join("-", in_LastName.Split(new char[] { ' ', '-' }, StringSplitOptions.RemoveEmptyEntries))</CSharpValue>
               </InArgument>
             </Assign.Value>
             <sap:WorkflowViewStateService.ViewState>
@@ -338,8 +359,8 @@
               <OutArgument x:TypeArguments="x:String" x:Key="out_Body">
                 <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">body</CSharpReference>
               </OutArgument>
-              <OutArgument x:TypeArguments="njl:JArray" x:Key="out_Json">
-                <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">allAccounts</CSharpReference>
+              <OutArgument x:TypeArguments="njl:JToken" x:Key="out_Json">
+                <CSharpReference x:TypeArguments="njl:JToken" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">allAccountsJson</CSharpReference>
               </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
@@ -374,6 +395,23 @@
               </Sequence>
             </If.Then>
           </If>
+          <Assign sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign.To>
+              <OutArgument x:TypeArguments="njl:JArray">
+                <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">allAccounts</CSharpReference>
+              </OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="njl:JArray">
+                <CSharpValue x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">allAccountsJson is JArray ? (JArray)allAccountsJson : (allAccountsJson["items"] as JArray ?? allAccountsJson["accounts"] as JArray ?? new JArray())</CSharpValue>
+              </InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
           <Assign DisplayName="Preia primul username liber" sap:VirtualizedContainerService.HintSize="680,48" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:HashSet(x:String)">
